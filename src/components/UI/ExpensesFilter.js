@@ -1,4 +1,4 @@
-import {useState} from "react";
+import { useState } from "react";
 
 import './ExpensesFilter.css';
 
@@ -12,9 +12,14 @@ const ExpensesFilter = (props) => {
       year: event.target.value
     };
 
+    // Rather than needing an anonymous function here, I'd probably just descructively read in an entire new set of values, one per field.
+    /*
+      setFilterData((prevState) => }
+        return {...prevState, year: event.target.value}
+      });
+    */
     setFilterData(event.target.value);
 
-    // TODO Does this need to be wrapped in an anonymous function either here or in the parent?
     props.onFilterChange(filterData);
   };
 
